@@ -1,0 +1,31 @@
+PAUSE	NS	12345
+### COMMENT 1
+GPIO	gpio_in		0		SET		0			SB_BYPASS
+GPIO	gpio_in		1		SET		0			SB_BYPASS
+GPIO	gpio_in		2		SET		1			SB_BYPASS
+GPIO	gpio_in		3		SET		0			SB_BYPASS
+GPIO	gpio_in		4		SET		0			SB_BYPASS
+GPIO	gpio_in		5		SET		1			SB_BYPASS
+GPIO	gpio_in		6		SET		0			SB_BYPASS
+GPIO	gpio_in		7		SET		0			SB_BYPASS
+PAUSE 	US	10
+GPIO	gpio_in		0		GET		0			SB_VERIFY
+GPIO	gpio_in		1		GET		0			SB_VERIFY
+GPIO	gpio_in		2		GET		1			SB_VERIFY
+GPIO	gpio_in		3		GET		0			SB_VERIFY
+GPIO	gpio_in		4		GET		0			SB_VERIFY
+GPIO	gpio_in		5		GET		1			SB_VERIFY
+GPIO	gpio_in		6		GET		0			SB_VERIFY
+GPIO	gpio_in		7		GET		0			SB_VERIFY
+PAUSE 	US 	10
+SPI 	WR 			2		0xEE				SB_VERIFY
+PAUSE 	US 	10
+SPI 	RD 			0		0xA5				SB_VERIFY
+PAUSE 	US	10
+SPI 	WR 			10		0xBB				SB_VERIFY
+PAUSE 	US	10
+SPI 	RD 			10		0xBB				SB_VERIFY
+PAUSE	US	10
+PAUSE 	US	10
+SPI 	RD 			2		0xEE				SB_VERIFY
+PAUSE	US	10
